@@ -4,7 +4,7 @@ setInterval(()=>{
     let lista = [
     {url:"https://mary-twitch.soufofo.repl.co/"},
     {url:"https://mary.blacklight.net.br"},
-    {url:"https://jogo-online-de-dinheiro.soufofo.repl.co/"}
+    {url:"https://lavalink-repl.c0dezin.repl.co"},{url:"https://jogo-online-de-dinheiro.soufofo.repl.co/"}
 ]
 lista.map(a=>{
     fetch(a.url).then(()=>{
@@ -15,6 +15,6 @@ lista.map(a=>{
         console.log(`Erro ao dar uptime pro ${a.url}`)
     })
 })
-},tempo)
+}, 10000)
 
 }

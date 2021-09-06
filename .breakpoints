@@ -1,0 +1,42 @@
+{
+  "files": {
+    "comandos/setprefix.command.js": [
+      {
+        "id": "bf750c9b-021c-4d2c-ba6e-0d776e4a3a52",
+        "line": 20,
+        "version": 1788,
+        "index": 722
+      }
+    ],
+    "commands/snake.command.js": [
+      {
+        "id": "67e762b2-0662-485d-887b-7ccb40818914",
+        "line": 1,
+        "version": 1,
+        "index": 0
+      }
+    ],
+    "commands/testeselect.command.js": [
+      {
+        "id": "286f35a4-3431-436f-b13f-4bae6502c308",
+        "line": 16,
+        "version": 1670,
+        "index": 305
+      }
+    ],
+    "index.js": [
+      {
+        "id": "3e686172-cf05-4855-8cb8-68fa1f6a089a",
+        "line": 40,
+        "version": 716,
+        "index": 1371
+      },
+      {
+        "id": "702353bc-b307-4422-b2ce-8dfe38c7d922",
+        "line": 57,
+        "version": 716,
+        "index": 1950
+      }
+    ]
+  }
+}

@@ -1,11 +1,10 @@
 const Discord = require('discord.js')
-const client = new Discord.Client({intents: ["GUILDS", "GUILD_MEMBERS", "GUILD_BANS", "GUILD_EMOJIS_AND_STICKERS", "GUILD_VOICE_STATES", "GUILD_MESSAGES", "GUILD_MESSAGE_REACTIONS", "DIRECT_MESSAGES", "GUILD_WEBHOOKS", "GUILD_MESSAGE_TYPING"]})
+const client = new Discord.Client({intents: ["GUILDS", "GUILD_MEMBERS", "GUILD_BANS", "GUILD_EMOJIS_AND_STICKERS", "GUILD_VOICE_STATES", "GUILD_MESSAGES", "GUILD_MESSAGE_REACTIONS", "DIRECT_MESSAGES", "GUILD_WEBHOOKS"]})
 const { DiscordTogether } = require('discord-together');
 const fs = require('fs')
 const db = require('./db')
 var cors = require('cors')
 client.discordTogether = new DiscordTogether(client);
-client.configs = require('./configs.json')
 const uptime = require('./ligar')
 const fetch = require('node-fetch')
 client.login(process.env.TOKEN)
@@ -26,20 +25,10 @@ app.use(bodyParser.json())
 client.on("ready",()=>{
 
   console.warn("Logada na Maryyyyyyyyyyyyyyyyyyyyyy!")
-  let status = "";
-  if(client.configs.status == 1){
-    client.user.setActivity(`Atualizando...`,{
-    type:"STREAMING",
-    url: "https://www.twitch.tv/c0desaas"
-  })
-  } else if(client.configs.status == 0){
-
   client.user.setActivity(`m.ajuda`,{
-    
     type:"STREAMING",
     url: "https://www.twitch.tv/c0desaas"
   })
-  }
   app.post("/git/atualizacao/:key",async(req,res)=>{
     const verifysenha = require('./senhaverify')
     
@@ -78,11 +67,11 @@ app.get("/",(req,res)=>{
      console.log("Todos os cmds foram carregados!")
 
   })
-  client.on('messageUpdate', (_, msg) => client.emit('messageCreate', msg))
+  
 
 client.on("messageCreate",async(message)=>{
   
- if(await db.createUser(message.author)) return;
+ // if(await db.createUser(message.author)) return;
   if(message.author.bot) return;
  
   if(message.channel.type == "DM")return;
@@ -105,15 +94,11 @@ client.on("messageCreate",async(message)=>{
             throw new Error("PERSONAERROR\nParece que te conheci agora, já que se apresentou use o comando novamente, bipbop")
           }
           function erro(erro){
-           message.reply("Um erro selvagem apareceu! \n```js\n"+erro+"```")
+           message.reply("Um errselvagemdo apareceu! \n```js\n"+erro+"```")
           }
-          if(comando.manu){
-            let dbDev = await client.db.verifyStaff(message.author) 
-            if(!dbDev) return message.reply(`Opa ${message.author}, parece que esse comando esta em manutenção, aguarde enquanto aviso minha equipe`)
-            
-          }
+          
           comando.run(client,message,args,erro)
-                                                                                        
+               //    erro(message.content)                                                                            
           client.channels.cache.get('880812071728578620').send({content: `O comando \`\`\`${cmd}\`\`\` foi executado por \`\`\`${message.author.username}\`\`\` \`\`\`(${message.author.id})** no servidor \`\`\`${message.guild.name}\`\`\`  \`\`\`(${message.guild.id})\`\`\` no canal \`\`\`${message.channel.name}\`\`\` \`\`\`(${message.channel.id})\`\`\` com as info \`\`\`${args.join(' ')}\`\`\``})
         } catch(e){
           e=String(e).replace("Error: ","")
@@ -125,13 +110,7 @@ client.on("messageCreate",async(message)=>{
   }
 })
 
-process.on('error', (_e) => {
-  console.error("errin ");
-});
 
-client.on('error', (_a) => {
-  console.error("erro: "+_a);
-});// NÃO É ISSO
 
 client.on("guildCreate",s=>{
   db.guildAdd(s)

@@ -1,4 +1,4 @@
- # MaryBot
+# MaryBot
 - Olá! eu sou a mary, uma simples bot e completa bot pro discord!
 
 ## URLS:
@@ -13,5 +13,5 @@
 - e bote as configs da firebase que você consegue em: https://console.firebase.google.com
 
 
-#### Alerta:
-- O Dono do github é o doutor estranho mas o criador é o [C0dezin](https://github.com/C0dezin)
+### Ajude o projeto
+[Buy me a pizza](https://www.buymeacoffee.com/c0de)

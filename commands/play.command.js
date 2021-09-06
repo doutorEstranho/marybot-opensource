@@ -12,12 +12,12 @@ module.exports = {
 name:"play",
 desc: "toque musica",
 cat:"div",
-manu:true,
+manu:false,
 aliases:["tocar"],
 run:run
 }
 async function run(client,message,args){
-let musicas = [
+/*let musicas = [
 "https://www.youtube.com/watch?v=kJQP7kiw5Fk&feature=youtu.be",
 "https://youtu.be/Olp_2JenI5A",
 "https://www.youtube.com/watch?v=Olp_2JenI5A",
@@ -27,65 +27,6 @@ let musicas = [
 "https://www.youtube.com/watch?v=72UO0v5ESUo",
 "https://www.youtube.com/watch?v=JGwWNGJdvx8",
 "https://www.youtube.com/watch?v=09R8_2nJtjg"
-/*"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-"",
-*/
 ]
 let num = Math.floor(Math.random() * musicas.length)
 let musica = musicas[6]
@@ -103,20 +44,21 @@ let ytRes = pesquisa.results
 // if(err) return console.log(err);
 
     if (message.member.voice.channel) {
-/*
-* ajuda aq
-*/
+
+    const connection = await message.member.voice.channel.join();
+
 //console.dir(client)
          ytRes.map(r => {
     musica=r.link
     message.channel.send(`
     Tocando agora: \`${r.title}\` id ${num} Pedido por: ${message.author.tag}(${message.author.id})`)
 })// ajudaaa
-
-      const connection = await message.member.voice.channel.join();
     connection.play(ytdl(musica, {filter: "audioonly"}))
+
 
         
     } else {
         message.reply("entre no canal de voz...")
     }}
+    */
+    }
